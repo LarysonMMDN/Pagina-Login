@@ -1,0 +1,1 @@
+Esse é um projeto para fins de estudos do Java Swing. É uma pagina de login onde tem campos de Usuário, Senha, Botão de Entrar, Imagens...etc. 
