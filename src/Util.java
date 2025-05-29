@@ -60,6 +60,5 @@ public class Util {
         JLabel imagem = new JLabel(imagemOriginal);
         return imagem;
     }
-
-
+    public static void ValidateUser() {}
 }
