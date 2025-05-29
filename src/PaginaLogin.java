@@ -35,8 +35,8 @@ public class PaginaLogin extends JFrame {
         nomeEmpresa.setForeground(Color.WHITE);
         logoPanel.add(nomeEmpresa);
 
-        ImageIcon imagem = new ImageIcon("src/Imagens/LogoMarca.png");
-        JLabel logoMarca = new JLabel(imagem);
+
+        JLabel logoMarca = Util.LoadImage("src/Imagens/LogoMarca.png");
         logoMarca.setBounds(75, 150, 250, 250);
         logoPanel.add(logoMarca);
 

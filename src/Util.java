@@ -48,11 +48,16 @@ public class Util {
         return campo;
     }
 
-    public static JLabel RedimencionamentoImagem(int altura, int largura, String caminhoImagem) {
+    public static JLabel ResizingImage(int altura, int largura, String caminhoImagem) {
         ImageIcon imagemOriginal = new ImageIcon(caminhoImagem);
         Image imagemRedimensionada  = imagemOriginal.getImage().getScaledInstance(largura, altura, Image.SCALE_SMOOTH);
         ImageIcon novaImagem = new ImageIcon(imagemRedimensionada );
         JLabel imagem = new JLabel(novaImagem);
+        return imagem;
+    }
+    public static JLabel LoadImage(String caminhoImagem) {
+        ImageIcon imagemOriginal = new ImageIcon(caminhoImagem);
+        JLabel imagem = new JLabel(imagemOriginal);
         return imagem;
     }
 

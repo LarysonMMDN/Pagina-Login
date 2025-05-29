@@ -38,11 +38,11 @@ public class PaginaInicial extends JFrame {
         mensagemFinal.setForeground(Color.WHITE);
         panelFinal.add(mensagemFinal);
 
-        JLabel imagemFinal = Util.RedimencionamentoImagem(325, 325, "src/imagens/ImagemFinal.png");
+        JLabel imagemFinal = Util.ResizingImage(325, 325, "src/imagens/ImagemFinal.png");
         imagemFinal.setBounds(390, 0, 400, 400);
         panelFinal.add(imagemFinal);
 
-        JLabel imagemQRCode = Util.RedimencionamentoImagem(200, 170, "src/imagens/QRCode.png");
+        JLabel imagemQRCode = Util.ResizingImage(200, 170, "src/imagens/QRCode.png");
         imagemQRCode.setBounds(10, 280, 170, 200);
         panelFinal.add(imagemQRCode);
 
@@ -51,7 +51,7 @@ public class PaginaInicial extends JFrame {
         textoContato.setFont(new Font("Segoe UI", Font.BOLD, 26));
         panelFinal.add(textoContato);
 
-        JLabel iconTelefone = Util.RedimencionamentoImagem(20, 20, "src/imagens/IconeTelefone.png");
+        JLabel iconTelefone = Util.ResizingImage(20, 20, "src/imagens/IconeTelefone.png");
         iconTelefone.setBounds(190, 330, 20, 20);
         panelFinal.add(iconTelefone);
 
@@ -60,7 +60,7 @@ public class PaginaInicial extends JFrame {
         panelFinal.add(textTelefone);
 
         // Emal
-        JLabel iconEmail = Util.RedimencionamentoImagem(20, 20, "src/imagens/IconeEmail.png");
+        JLabel iconEmail = Util.ResizingImage(20, 20, "src/imagens/IconeEmail.png");
         iconEmail.setBounds(190, 365, 20, 20);
         panelFinal.add(iconEmail);
 
@@ -69,7 +69,7 @@ public class PaginaInicial extends JFrame {
         panelFinal.add(textEmail);
 
         // Likedin
-        JLabel iconLinkedin = Util.RedimencionamentoImagem(20, 20, "src/imagens/IconeLinkedin.png");
+        JLabel iconLinkedin = Util.ResizingImage(20, 20, "src/imagens/IconeLinkedin.png");
         iconLinkedin.setBounds(190, 395, 20, 20);
         panelFinal.add(iconLinkedin);
 
