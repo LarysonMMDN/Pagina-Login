@@ -13,6 +13,8 @@ public class PaginaLogin extends JFrame {
         setResizable(false);
         setLayout(null);
         setLocationRelativeTo(null);
+        ImageIcon icon = new ImageIcon("src/imagens/InfiniteLogoBar.png");
+        setIconImage(icon.getImage());
 
         JPanel mainPanel = new JPanel();
         mainPanel.setBounds(0, 0, LARGURA_JANELA - 10, ALTURA_JANELA - 30);
@@ -83,10 +85,20 @@ public class PaginaLogin extends JFrame {
         // Botões
         JButton botaoEntrar = Util.createButton("Entrar", centroPainelLogin, 360, larguraBotao, alturaBotao);
         botaoEntrar.addActionListener(e -> {
-            System.out.println("User: " + campoUser.getText());
-            System.out.println("Password: " + campoPassword.getText());
-            PaginaInicial paginaInicial = new PaginaInicial();
-            paginaInicial.iniciar();
+            boolean entrar = Validacao.ValidarUsuario(campoUser.getText(), campoPassword.getText());
+            if (entrar){
+                PaginaInicial paginaInicial = new PaginaInicial();
+                paginaInicial.iniciar();
+                dispose();
+            } else {
+                // Metodo que mostra erro
+                Util.marcarCampoInvalido(textUser);
+                Util.marcarCampoInvalido(campoUser);
+                Util.marcarCampoInvalido(textPassword);
+                Util.marcarCampoInvalido(campoPassword);
+                Util.mensagemCampoInvalido("Usuario ou Senha Invalidos", 0,325, painelLogin);
+
+            }
         });
         painelLogin.add(botaoEntrar);
 

@@ -12,6 +12,8 @@ public class PaginaInicial extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setLayout(null);
+        ImageIcon icon = new ImageIcon("src/imagens/InfiniteLogoBar.png");
+        setIconImage(icon.getImage());
 
         JPanel mainPanel = new JPanel();
         mainPanel.setBounds(0, 0, LARGURA_JANELA, ALTURA_JANELA);
@@ -28,7 +30,7 @@ public class PaginaInicial extends JFrame {
         mensagemBemVindo.setForeground(Color.WHITE);
         panelFinal.add(mensagemBemVindo);
 
-        JLabel nomeUser = Util.createLabel("Laryson Mendonça Martins", 26, 175, 50, 340, 50);
+        JLabel nomeUser = Util.createLabel(Validacao.MostrarNome(), 26, 175, 50, 340, 50);
         nomeUser.setForeground(new Color(94, 23, 235));
         panelFinal.add(nomeUser);
 
@@ -76,6 +78,14 @@ public class PaginaInicial extends JFrame {
         JLabel textLinkedin = Util.createLabel("www.linkedin.com/in/LarysonMendonça", 14, 215, 383, 300, 40);
         textLinkedin.setForeground(Color.WHITE);
         panelFinal.add(textLinkedin);
+
+        JButton botaoLogout = Util.createButton("Logout", 590, 440, 100, 30);
+        botaoLogout.addActionListener(e -> {
+            PaginaLogin paginaLogin = new PaginaLogin();
+            paginaLogin.iniciar();
+            dispose();
+        });
+        panelFinal.add(botaoLogout);
 
         mainPanel.add(panelFinal);
         add(mainPanel);

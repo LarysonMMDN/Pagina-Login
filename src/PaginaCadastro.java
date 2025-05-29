@@ -2,7 +2,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class PaginaCadastro extends JFrame {
+public class PaginaCadastro extends JDialog {
     int LARGURA_JANELA = 350;
     int ALTURA_JANELA = 550;
 
@@ -11,6 +11,8 @@ public class PaginaCadastro extends JFrame {
         setSize(LARGURA_JANELA, ALTURA_JANELA);
         setResizable(false);
         setLocationRelativeTo(null);
+        setAlwaysOnTop(true);
+        setModal(true);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(null);
@@ -58,8 +60,34 @@ public class PaginaCadastro extends JFrame {
         mainPanel.add(campoSenhaConfirmacao);
 
         JButton botaoCadastrar = Util.createButton("Cadastrar", 100, 450, 150, 40);
+        botaoCadastrar.addActionListener(e -> {
+            if (campoNomeExibicao.getText().isEmpty()){
+                Util.marcarCampoInvalido(textoNomeExibicao, Color.WHITE);
+                Util.marcarCampoInvalido(campoNomeExibicao);
+                Util.mensagemCampoInvalido("Nome de exibição não pode estar vazio", 0, 420, mainPanel);
+            } else if (campoUsuario.getText().isEmpty()) {
+                Util.marcarCampoInvalido(textoNomeUsuario, Color.WHITE);
+                Util.marcarCampoInvalido(campoUsuario);
+                Util.mensagemCampoInvalido("O campo Usuário não pode estar vazio", 0, 420, mainPanel);
+            } else if (campoUsuario.getText().split(" ").length > 1) {
+                Util.marcarCampoInvalido(textoNomeUsuario, Color.WHITE);
+                Util.marcarCampoInvalido(campoUsuario);
+                Util.mensagemCampoInvalido("O campo Usuário não pode conter espaços", 0, 420, mainPanel);
+            } else if (!campoSenhaAcesso.getText().equals(campoSenhaConfirmacao.getText()) || campoSenhaAcesso.getText().isEmpty()){
+                Util.marcarCampoInvalido(textoSenhaAcesso, Color.WHITE);
+                Util.marcarCampoInvalido(campoSenhaAcesso);
+                Util.marcarCampoInvalido(textoSenhaConfirmacao, Color.WHITE);
+                Util.marcarCampoInvalido(campoSenhaConfirmacao);
+                Util.mensagemCampoInvalido("Senha Inválida", 0, 420, mainPanel);
+            } else if (campoSenhaAcesso.getText().equals(campoSenhaConfirmacao.getText())) {
+                Usuario usuario = new Usuario(campoNomeExibicao.getText(), campoUsuario.getText(), campoSenhaConfirmacao.getText());
+                Validacao.AdicionarUsuario(usuario);
+                dispose();
+            }
+        });
         mainPanel.add(botaoCadastrar);
-
+        ImageIcon icone = new ImageIcon("src/imagens/InfiniteLogoBar.png");
+        setIconImage(icone.getImage());
         add(mainPanel);
     }
     public void iniciar(){
